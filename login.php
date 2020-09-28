@@ -1,26 +1,3 @@
-<?php 
-session_start();
-
-if (isset($_SESSION)) {
-    header('Location: index.php');
-}
-
-$rootuser = FALSE;
-$contraseña = NULL;
-$rootcontraseña = "000impoinversiones000";
-if (!empty($_POST["contraseña"])) {
-    $contraseña = $_POST["contraseña"];
-}
-if ($contraseña == $rootcontraseña) {
-    $rootuser = TRUE;
-}else {
-    $rootuser = FALSE;
-}
-if ($rootuser == TRUE) {
-    $_SESSION = $_POST;
-    header('Location: index.php');
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +9,7 @@ if ($rootuser == TRUE) {
 <body class="body-loggin">
     <section class="forms-user">  
         <div class="formulario-user">
-            <form action="login.php" method="POST">
+            <form action="index.php" method="POST">
             <input name="contraseña" type="text" placeholder="clave">
             <hr class="line">
             <div class="submit-btn-div">
@@ -44,4 +21,3 @@ if ($rootuser == TRUE) {
     </section>
 </body>
 </html>
-
