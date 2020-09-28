@@ -3,7 +3,7 @@ session_start();
 
 $userRoot = FALSE;
 
-if (!empty($_SESSION)) {
+if (isset($_SESSION)) {
     $userRoot = TRUE;
 }else {
     $userRoot = FALSE;
