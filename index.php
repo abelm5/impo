@@ -1,9 +1,28 @@
-﻿<?php
+<?php
 session_start();
+
+$rootuser = FALSE;
+$contraseña = NULL;
+$rootcontraseña = "000impoinversiones000";
+
+if (isset($_SESSION)) {
+    $rootuser = TRUE;
+
+}
+
+if (isset($_POST["contraseña"])) {
+    $contraseña = $_POST["contraseña"];
+}
+if ($contraseña == $rootcontraseña) {
+    $rootuser = TRUE;
+    
+}else {
+    $rootuser = FALSE;
+}
 
 $userRoot = FALSE;
 
-if (isset($_SESSION)) {
+if ($rootuser == TRUE) {
     $userRoot = TRUE;
 }else {
     $userRoot = FALSE;
